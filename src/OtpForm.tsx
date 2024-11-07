@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { MobileContext, StyledComponentProp } from './MobileContext';
+import { MobileContext, StyledComponentMobileProp } from './MobileContext';
+import { DARKER_PURPLE, GREY_PURPLE, LIGHTER_PURPLE } from './theme';
 
 const OtpForm = () => {
     const inputFields = Array(4).fill(0);
@@ -36,20 +37,20 @@ const Wrapper = styled.div`
     justify-content: space-evenly;
 `;
 
-const DigitInput = styled.input<StyledComponentProp>`
-    background-color: #1b2036;
-    border: 1px solid #b2b9d8;
+const DigitInput = styled.input<StyledComponentMobileProp>`
+    background-color: ${DARKER_PURPLE};
+    border: 1px solid ${LIGHTER_PURPLE};
 
     height: ${(props) => (props.$isMobile ? '4.8rem' : '8rem')};
     width: ${(props) => (props.$isMobile ? '4rem' : '8rem')};
 
     border-radius: 5px;
-    color: #b2b9d8;
+    color: ${LIGHTER_PURPLE};
     font-size: ${(props) => (props.$isMobile ? '3.8rem' : '7rem')};
     text-align: center;
 
     &::placeholder {
-        color: #2f3650;
+        color: ${GREY_PURPLE};
     }
 `;
 

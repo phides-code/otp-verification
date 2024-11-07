@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import OtpDialog from './OtpDialog';
 import { MobileProvider } from './MobileContext';
+import { DARKER_PURPLE } from './theme';
 
 const App = () => (
     <Wrapper>
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: #1b2036;
+    background-color: ${DARKER_PURPLE};
 `;
 
 export default App;

@@ -12,7 +12,7 @@ interface MobileProviderProps {
     children: ReactNode;
 }
 
-export interface StyledComponentProp {
+export interface StyledComponentMobileProp {
     $isMobile: boolean;
 }
 

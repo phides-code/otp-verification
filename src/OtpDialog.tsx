@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import OtpForm from './OtpForm';
 import { useContext } from 'react';
-import { MobileContext, StyledComponentProp } from './MobileContext';
+import { MobileContext, StyledComponentMobileProp } from './MobileContext';
+import { DARK_PURPLE, LIGHT_PURPLE, LIGHTER_PURPLE } from './theme';
 
 const OtpDialog = () => {
     const { isMobile } = useContext(MobileContext);
@@ -20,7 +21,7 @@ const OtpDialog = () => {
     );
 };
 
-const Wrapper = styled.div<StyledComponentProp>`
+const Wrapper = styled.div<StyledComponentMobileProp>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,21 +29,21 @@ const Wrapper = styled.div<StyledComponentProp>`
     height: 60%;
     width: ${(props) => (props.$isMobile ? '' : '44rem')};
     border-radius: 15px;
-    background-color: #262b42;
+    background-color: ${DARK_PURPLE};
 
     margin: 1rem;
     padding: 1rem;
 `;
 
 const HeaderText = styled.div`
-    color: #b2b9d8;
+    color: ${LIGHTER_PURPLE};
     text-align: center;
     font-size: xx-large;
 `;
 
 const SubHeaderText = styled.div`
     text-align: center;
-    color: #7582ac;
+    color: ${LIGHT_PURPLE};
 `;
 
 export default OtpDialog;
