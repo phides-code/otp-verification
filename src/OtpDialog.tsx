@@ -1,29 +1,48 @@
 import styled from 'styled-components';
+import OtpForm from './OtpForm';
+import { useContext } from 'react';
+import { MobileContext, StyledComponentProp } from './MobileContext';
 
-interface OtpDialogProps {
-    isMobile: boolean;
-}
+const OtpDialog = () => {
+    const { isMobile } = useContext(MobileContext);
 
-const OtpDialog = ({ isMobile }: OtpDialogProps) => {
-    const mobile = isMobile.toString();
-
-    return <Wrapper $mobile={mobile}>hello world</Wrapper>;
+    return (
+        <Wrapper $isMobile={isMobile}>
+            <HeaderText>Verify your email address</HeaderText>
+            <SubHeaderText>
+                A four-digit code has been sent to your email
+                name@frontendpro.dev
+                <br />
+                Please enter the code below to verify your email address.
+            </SubHeaderText>
+            <OtpForm />
+        </Wrapper>
+    );
 };
 
-interface StyledComponentProps {
-    $mobile: string;
-}
-
-const Wrapper = styled.div<StyledComponentProps>`
-    height: 8rem;
-    width: ${(props) => (props.$mobile === 'true' ? '' : '44rem')};
-
+const Wrapper = styled.div<StyledComponentProp>`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: ${(props) => (props.$isMobile ? '' : '44rem')};
     border-radius: 15px;
     background-color: #262b42;
+
+    margin: 1rem;
+    padding: 1rem;
+`;
+
+const HeaderText = styled.div`
     color: #b2b9d8;
+    text-align: center;
+    font-size: xx-large;
+`;
+
+const SubHeaderText = styled.div`
+    text-align: center;
+    color: #7582ac;
 `;
 
 export default OtpDialog;
-
-// light purple: #7582ac
-// greyed out: #2f3650

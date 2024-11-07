@@ -1,38 +1,14 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import OtpDialog from './OtpDialog';
+import { MobileProvider } from './MobileContext';
 
-const App = () => {
-    const [isMobile, setisMobile] = useState<boolean>(false);
-
-    useEffect(() => {
-        const detectMobile = () => {
-            const mobileThreshold = 768; // Threshold for isMobile devices (adjust as needed)
-
-            setisMobile(window.innerWidth < mobileThreshold);
-        };
-
-        // Function to check if the window is resized
-        const handleResize = () => {
-            detectMobile();
-        };
-
-        detectMobile();
-
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener on unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    return (
-        <Wrapper>
-            <OtpDialog isMobile={isMobile} />
-        </Wrapper>
-    );
-};
+const App = () => (
+    <Wrapper>
+        <MobileProvider>
+            <OtpDialog />
+        </MobileProvider>
+    </Wrapper>
+);
 
 const Wrapper = styled.div`
     display: flex;
