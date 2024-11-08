@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import OtpDialog from './OtpDialog';
 import { MobileProvider } from './MobileContext';
 import { DARKER_PURPLE } from './theme';
+import OtpForm from './OtpForm';
 
 const App = () => (
     <Wrapper>
         <MobileProvider>
-            <OtpDialog />
+            <OtpForm />
         </MobileProvider>
     </Wrapper>
 );
